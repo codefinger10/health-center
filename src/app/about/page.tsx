@@ -1,18 +1,19 @@
 import HeaderComponent from '@/components/common/HeaderComponent';
-import styles from '@/styles/header.module.scss';
 import Link from 'next/link';
-import { PiSealCheck } from 'react-icons/pi';
-import { SlLayers } from 'react-icons/sl';
+import React from 'react';
+import styles from '@/styles/header.module.scss';
+import { SlEnvolopeLetter, SlGhost } from 'react-icons/sl';
+
 const About = (): JSX.Element => {
   return (
     <>
       <HeaderComponent
         rightElements={[
-          <Link key="feedback" href="/feedback" className={styles.box}>
-            <PiSealCheck />
+          <Link key="feedback" href="feedback" className={styles.box}>
+            <SlEnvolopeLetter />
           </Link>,
-          <Link key="about" href="/about" className={styles.box}>
-            <SlLayers />
+          <Link key="about" href="about" className={styles.box}>
+            <SlGhost />
           </Link>,
         ]}
       />

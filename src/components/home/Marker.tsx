@@ -2,7 +2,7 @@
 import { Marker } from '@/types/map';
 import React, { useEffect } from 'react';
 
-const Marker = ({ map, coordinates, icon }: Marker) => {
+const Marker = ({ map, coordinates, icon, onClick }: Marker) => {
   // 컴포넌트 배치시 기본 출력 처리
   useEffect(() => {
     // https://navermaps.github.io/maps.js.ncp/docs/tutorial-2-Marker.html
@@ -14,6 +14,10 @@ const Marker = ({ map, coordinates, icon }: Marker) => {
         map: map,
         icon: icon,
       });
+    }
+
+    if (onClick) {
+      naver.maps.Event.addListener(marker, 'click', onClick);
     }
     // 컴포넌트가 제거될때 실행할 cleanup 함수
     return () => {
