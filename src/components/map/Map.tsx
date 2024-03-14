@@ -7,6 +7,7 @@ import React, { useEffect, useRef } from 'react';
 
 // 환경변수 사용 (vercel 에 배포시 반드시 기재)
 const MAP_KEY = process.env.NEXT_PUBLIC_NCP_CLIENT_ID;
+
 // 컴포넌트에 전달할 수 있는 Props Type 정의
 type Props = {
   mapId?: string; // 배치될 HTML 의 ID
@@ -57,6 +58,7 @@ const Map = ({
       mapRef.current?.destroy();
     };
   }, []);
+
   return (
     <>
       {/* Next.js 에서 외부 자바스크립트 참조시 next/script */}

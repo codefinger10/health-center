@@ -11,7 +11,7 @@ import { CURRENT_INFO_KEY, useCurrentInfo } from '@/hooks/useCurrentInfo';
 const Markers = () => {
   // 좌표를 저장 및 삭제
   const { setCurrentInfo, clearCurrentInfo } = useCurrentInfo();
-
+  // SWR 에 보관된 정보를 추출
   const { data: currentInfo } = useSWR<Info>(CURRENT_INFO_KEY);
 
   // 보관하고 있는 SWR 을 활용
@@ -29,7 +29,7 @@ const Markers = () => {
       url: isSelected ? '/icon-active.png' : '/icon.png',
       size: new naver.maps.Size(64, 64),
       origin: new naver.maps.Point(0, 0),
-      scaledSize: new naver.maps.Size(30, 30),
+      scaledSize: new naver.maps.Size(54, 54),
     };
   };
 
@@ -61,8 +61,9 @@ const Markers = () => {
           map={map}
           coordinates={currentInfo.coordinates}
           icon={changeMarkerIcon(true)}
-          key={9999999}
+          key={9999999999}
           onClick={() => {
+            // 보관된 좌표를 지워라
             clearCurrentInfo();
           }}
         />

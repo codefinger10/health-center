@@ -16,9 +16,12 @@ const Marker = ({ map, coordinates, icon, onClick }: Marker) => {
       });
     }
 
+    // 클릭 처리
     if (onClick) {
+      // 네이버 API 이벤트 처리하는 방식을 사용(문서참조)
       naver.maps.Event.addListener(marker, 'click', onClick);
     }
+
     // 컴포넌트가 제거될때 실행할 cleanup 함수
     return () => {
       marker?.setMap(null);

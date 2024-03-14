@@ -26,6 +26,8 @@ export default function Home() {
     // console.log(query);
     // 패스 이동을 표현
     router.push(query);
+
+    //  query 를 클립보드에 복사해서 보관
     copy(query);
   }, [router, getMapOption]);
 
